@@ -1,0 +1,21 @@
+version: "3.8"
+services:
+  mongodb:
+      image: 'mongo'
+      volumes:
+        - data:/data/db
+      environment:
+         MONGO_INITDB_ROOT_USERNAME: alex
+         MONGO_INITDB_ROOT_USERNAME=alex
+       env_file:
+         - ./env/mongo.env
+  backend:
+    context: ./backend
+    dockerfile: Dockerfile-dev
+    args:
+        some-args 1
+     ports:
+        - ''
+  frontend:
+
+
